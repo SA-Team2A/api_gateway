@@ -1,0 +1,133 @@
+// Get all collections
+query{
+  getCollections{
+    id
+		user_id
+    name
+  }
+}
+
+// Get collection with ID
+query{
+  getCollectionsByUserId(user_id: 1){
+    id
+		user_id
+    name
+  }
+}
+
+// Get collections of a user with user_id
+query{
+  getCollections{
+    id
+		user_id
+    name
+  }
+}
+
+// Create a collection
+mutation{
+  createCollection(input: {
+		user_id: 1
+    name: "Favoritos"
+  })
+	{
+		id
+		user_id
+		name
+	}
+}
+
+// Update collection with ID
+mutation{
+  updateCollection(id: 1, input: {
+		user_id: 1
+    name: "Comida Navideña"
+  })
+	{
+		id
+		user_id
+		name
+	}
+}
+
+// Delete collection with ID
+mutation{
+  deleteCollection(id: 1)
+	{
+		id
+		user_id
+		name
+	}
+}
+
+// Get all recipes
+query{
+  getCollectionRecipes{
+    id
+		collection_id
+		recipe_id
+    name
+  }
+}
+
+// Get recipe with ID
+query{
+  getCollectionRecipeById(id: 1){
+    id
+		collection_id
+		recipe_id
+    name
+  }
+}
+
+// Get recipe by name with user_id
+query{
+  getRecipeByName(user_id: 1, name: "Favoritos"){
+    id
+		collection_id
+		recipe_id
+    name
+  }
+}
+
+// Create a recipe
+mutation{
+  addToCollection(input: {
+		collection_id: 1
+		recipe_id: "1"
+		name: "Receta Colombiana"
+  })
+	{
+		id
+		collection_id
+		recipe_id
+    name
+	}
+}
+
+// Update recipe with ID
+mutation{
+  updateCollectionRecipe(id: 1, input:{
+    collection_id: 2
+		recipe_id: "2"
+		name: "Receta Inglesa"
+  })
+	{
+		id
+		collection_id
+		recipe_id
+    name
+	}
+}
+
+// Delete recipe with ID
+mutation{
+  removeFromCollection(id: 1)
+	{
+		id
+		collection_id
+		recipe_id
+    name
+	}
+}

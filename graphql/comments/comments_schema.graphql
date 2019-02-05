@@ -1,0 +1,31 @@
+# Agregar aqui el esquema de su microservicio en lenguaje de GraphQL
+# Query, Mutation, Definicion de tipos e input
+
+type Query {
+  getComments: [Comment!]!
+  getCommentById(_id: ID!): Comment
+  getCommentsByUserId(user_id: ID!): [Comment!]!
+  getCommentsByRecipeId(recipe_id: ID!): [Comment!]!
+  getCommentsByRecipeIdAndUserId(user_id: ID!, recipe_id: ID!): [Comment!]!
+}
+
+type Mutation {
+  createComment(comment: CommentInput!): Comment!
+  updateComment(_id: ID!, comment: String!): Comment!
+  deleteComment(_id: ID!): Comment!
+}
+
+type Comment {
+  _id: ID!
+  user_id: ID!
+  recipe_id: ID!
+  comment: String!
+  created_date: String!
+}
+
+input CommentInput {
+  user_id: ID!
+  recipe_id: ID!
+  comment: String!
+  created_date: String!
+}
