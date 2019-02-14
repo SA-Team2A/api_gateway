@@ -5,7 +5,7 @@ type Query {
   getComments: [Comment!]!
   getCommentById(_id: ID!): Comment
   getCommentsByUserId(user_id: ID!): [Comment!]!
-  getCommentsByRecipeId(recipe_id: ID!): [Comment!]!
+  getCommentsByRecipeId(recipe_id: ID!): [Comment_User!]!
   getCommentsByRecipeIdAndUserId(user_id: ID!, recipe_id: ID!): [Comment!]!
 }
 
@@ -19,6 +19,15 @@ type Comment {
   _id: ID!
   user_id: ID!
   recipe_id: ID!
+  comment: String!
+  created_date: String!
+}
+
+type Comment_User {
+  _id: ID!
+  user_id: ID!
+  recipe_id: ID!
+  username: String!
   comment: String!
   created_date: String!
 }

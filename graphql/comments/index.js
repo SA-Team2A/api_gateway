@@ -1,6 +1,6 @@
 const requireSchema = require('require-graphql-file')
 const schema = requireSchema('./comments_schema')
-const { comments_url } = require('../../request/urls')
+const { comments_url, join_url } = require('../../request/urls')
 const { GET, POST, PUT, DELETE } = require('../../request')
 
 // Resolvers
@@ -17,8 +17,8 @@ const resolvers = {
     return res.comments
   },
   getCommentsByRecipeId: async ({ recipe_id }) => {
-    let res = await GET(comments_url, `comments?recipe_id=${recipe_id}`)
-    return res.comments
+    let res = await GET(join_url, `users_comments?recipe_id=${recipe_id}`)
+    return res
   },
   getCommentsByRecipeIdAndUserId: async ({ user_id, recipe_id }) => {
     let res = await GET(comments_url, `comments?recipe_id=${recipe_id}&user_id=${user_id}`)
