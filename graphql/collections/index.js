@@ -46,7 +46,7 @@ const resolvers = {
 		const i = {
 			collection_id: input.collection_id,
 			recipe_id: input.recipe_id,
-			name: ""
+			name: "Nombre Inutil"
 		}
 		return await POST(collections_url, "/recipe/", i)
 	},
