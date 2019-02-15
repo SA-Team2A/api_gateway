@@ -29,7 +29,7 @@ const resolvers = {
     return await GET(users_url, `/users/${user_id}/removefollower/${follower_id}`)
   },
   updateUser: async ({ id, user }) => {
-    return await PUT(users_url, `/users/${id}`, user)
+    return await PUT(users_url, `/users/${id}`, { user })
   },
   deleteUser: async ({ id }) => {
     return await DELETE(users_url, `/users/${id}`)
