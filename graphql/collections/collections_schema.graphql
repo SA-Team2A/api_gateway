@@ -24,7 +24,6 @@ type CR {
 input CollectionRecipeInput {
 	collection_id: ID!
 	recipe_id: ID!
-	name: String!
 }
 
 type Query {
