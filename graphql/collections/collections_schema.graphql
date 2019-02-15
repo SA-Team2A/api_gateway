@@ -11,6 +11,16 @@ type CollectionRecipe {
   name: String!
 }
 
+type CR {
+	id: ID!
+	collection_id: ID!
+	recipe_id: ID!
+	_id: ID!
+	name: String!
+  portions: Int
+  preparation_time: Int
+}
+
 input CollectionRecipeInput {
 	collection_id: ID!
 	recipe_id: ID!
@@ -26,7 +36,7 @@ type Query {
 	getRecipeByName(user_id: ID!, name: String!): [CollectionRecipe!]!
 
   getCollectionRecipes: [CollectionRecipe!]!
-  getCollectionRecipeById(id: ID!): CollectionRecipe!
+  getCollectionRecipeById(id: ID!): CR!
 }
 
 # Mutations

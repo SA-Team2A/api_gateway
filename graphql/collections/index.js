@@ -1,6 +1,6 @@
 const requireSchema = require('require-graphql-file')
 const schema = requireSchema('./collections_schema')
-const { collections_url } = require('../../request/urls')
+const { collections_url, join_url } = require('../../request/urls')
 const { GET, POST, PUT, DELETE } = require('../../request')
 
 // Resolvers
@@ -40,7 +40,7 @@ const resolvers = {
 		return await GET(collections_url, "/recipe/")
 	},
 	getCollectionRecipeById: async ({ id }) => {
-		return await GET(collections_url, `/recipe/${id}`)
+		return await GET(join_url, `/recipes_collections?collection_id=${id}`)
 	},
 	addToCollection: async ({ input }) => {
 		return await POST(collections_url, "/recipe/", input)
