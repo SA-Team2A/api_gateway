@@ -43,7 +43,12 @@ const resolvers = {
 		return await GET(join_url, `/recipes_collections?collection_id=${id}`)
 	},
 	addToCollection: async ({ input }) => {
-		return await POST(collections_url, "/recipe/", input)
+		const i = {
+			collection_id: input.collection_id,
+			recipe_id: input.recipe_id,
+			name: ""
+		}
+		return await POST(collections_url, "/recipe/", i)
 	},
 	updateCollectionRecipe: async ({ id, input }) => {
 		return await PUT(collections_url, `/recipe/${id}`, input)
