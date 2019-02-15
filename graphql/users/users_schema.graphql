@@ -29,4 +29,5 @@ type Mutation {
   removeFollower(user_id: ID!, follower_id: ID!): User!
   updateUser(id: ID!, user: UserInput!): User!
   deleteUser(id: ID!): User!
+  deleteMyProfile: User!
 }

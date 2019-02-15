@@ -33,6 +33,10 @@ const resolvers = {
   },
   deleteUser: async ({ id }) => {
     return await DELETE(users_url, `/users/${id}`)
+  },
+  deleteMyProfile: async (args, context, info) => {
+    const id = context.user.id
+    return await DELETE(users_url, `/users/${id}`)
   }
 }
  module.exports = { schema, resolvers }
