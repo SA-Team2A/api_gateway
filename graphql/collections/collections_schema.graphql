@@ -12,9 +12,9 @@ type CollectionRecipe {
 }
 
 type CR {
-	id: ID!
-	collection_id: ID!
-	recipe_id: ID!
+	ID: ID!
+	Collection_id: ID!
+	Recipe_id: ID!
 	_id: ID!
 	name: String!
   portions: Int
